@@ -3,6 +3,7 @@ import openai
 from openpyxl.reader.excel import load_workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.workbook import Workbook
+from config import AUTH_KEY
 
 
 # Wczytanie danych z pliku
@@ -40,7 +41,7 @@ def generuj_opis_wsi(nazwa, gmina, powiat):
     try:
         # Make your OpenAI API request here
         # Inicjalizacja GPT-4
-        openai.api_key = 'sk-AUTHORISATION KEY'
+        openai.api_key = AUTH_KEY
         res = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
